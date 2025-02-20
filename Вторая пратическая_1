@@ -1,0 +1,16 @@
+import sqlite3
+connection = sqlite3.connect('my_database.db')
+cursor = connection.cursor()
+
+# Создаем таблцу Users
+cursor.execute('''
+CREATE TABLE IF NOT EXISTS Users (
+id INTEGER PRIMARY KEY,
+username TEXT NOT NULL,
+email TEXT NOT NULL,
+age INTEGER
+)
+''')
+# Сохраняем изменения и закрываем соединение
+connection.commit()
+connection.close()
